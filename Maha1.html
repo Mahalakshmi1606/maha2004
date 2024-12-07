@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Largest Number</title>
+    <script>
+        // Function to find the largest number in an array
+        function findLargestNumber(arr) {
+            if (arr.length === 0) {
+                return "Array is empty";
+            }
+            let largest = arr[0]; // Start by assuming the first number is the largest
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > largest) {
+                    largest = arr[i]; // Update largest if a bigger number is found
+                }
+            }
+            return largest;
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputArray = [3, 7, 1, 8, 4, 10, 5]; // Example array
+            const largestNumber = findLargestNumber(inputArray);
+            document.getElementById("result").textContent = "The largest number is: " + largestNumber;
+        }
+    </script>
+</head>
+<body hspace="12">
+
+    <h1>Find the Largest Number</h1>
+    <button onclick="displayResult()">Find Largest</button>
+    <p id="result"></p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Duplicates from Array</title>
+    <script>
+        // Function to remove duplicates from an array
+        function removeDuplicates(arr) {
+            // Using Set to remove duplicates
+            return [...new Set(arr)];
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputArray = [11,12,13,1,2,3,4,5,3,4,5]; // Example array
+            const uniqueArray = removeDuplicates(inputArray);
+            document.getElementById("result").textContent = "Array with duplicates removed: " + JSON.stringify(uniqueArray);
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Remove Duplicates from Array</h1>
+    <button onclick="displayResult()">Remove Duplicates</button>
+    <p id="result"></p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Array Order</title>
+    <script>
+        // Function to reverse the order of elements in an array
+        function reverseArray(arr) {
+            return arr.reverse(); // Using the built-in reverse method to reverse the array
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputArray = [5,10,15,20,25]; // Example array
+            const reversedArray = reverseArray(inputArray);
+            document.getElementById("result").textContent = "Reversed array: " + JSON.stringify(reversedArray);
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Reverse the Order of Elements in an Array</h1>
+    <button onclick="displayResult()">Reverse Array</button>
+    <p id="result"></p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Second Largest Number</title>
+    <script>
+        // Function to find the second largest number in an array
+        function findSecondLargest(arr) {
+            if (arr.length < 2) {
+                return "Array must have at least two elements";
+            }
+
+            let firstLargest = -Infinity;
+            let secondLargest = -Infinity;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > firstLargest) {
+                    secondLargest = firstLargest; // Update second largest before first largest
+                    firstLargest = arr[i]; // Update first largest
+                } else if (arr[i] > secondLargest && arr[i] !== firstLargest) {
+                    secondLargest = arr[i]; // Update second largest if the current element is between first largest and second largest
+                }
+            }
+
+            if (secondLargest === -Infinity) {
+                return "No second largest number found";
+            }
+            return secondLargest;
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputArray = [10, 20, 4, 45, 99]; // Example array
+            const secondLargest = findSecondLargest(inputArray);
+            document.getElementById("result").textContent = "The second largest number is: " + secondLargest;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Find the Second Largest Number</h1>
+    <button onclick="displayResult()">Find Second Largest</button>
+    <p id="result"></p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check if Array is Subset</title>
+    <script>
+        // Function to check if one array is a subset of another array
+        function isSubset(arr1, arr2) {
+            // Convert arr2 to a Set for fast lookup
+            const set2 = new Set(arr2);
+
+            // Check if every element in arr1 is in set2
+            return arr1.every(element => set2.has(element));
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const array1 = [1, 2, 3]; // Example array 1
+            const array2 = [1, 2, 3, 4, 5]; // Example array 2
+            
+            const result = isSubset(array1, array2);
+            document.getElementById("result").textContent = result ? 
+                "Array 1 is a subset of Array 2" : 
+                "Array 1 is not a subset of Array 2";
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Check if One Array is a Subset of Another</h1>
+    <button onclick="displayResult()">Check Subset</button>
+    <p id="result"></p>
+
+</body>
+</html>
+
+String Javascript Problem
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse a String</title>
+    <script>
+        // Function to reverse a string
+        function reverseString(str) {
+            return str.split('').reverse().join(''); // Split, reverse, and join back into a string
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputString = document.getElementById("inputString").value; // Get the input string
+            const reversedString = reverseString(inputString);
+            document.getElementById("result").textContent = "Reversed string: " + reversedString;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Reverse a Given String</h1>
+
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Enter string here" />
+    <button onclick="displayResult()">Reverse String</button>
+
+    <p id="result"></p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Check</title>
+    <script>
+        // Function to check if a string is a palindrome
+        function isPalindrome(str) {
+            // Remove spaces and convert to lowercase for accurate comparison
+            const cleanedStr = str.replace(/\s+/g, '').toLowerCase();
+            // Reverse the string and check if it equals the original string
+            const reversedStr = cleanedStr.split('').reverse().join('');
+            return cleanedStr === reversedStr;
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputString = document.getElementById("inputString").value; // Get the input string
+            const result = isPalindrome(inputString);
+            document.getElementById("result").textContent = result ? 
+                `"${inputString}" is a palindrome.` : 
+                `"${inputString}" is not a palindrome.`;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Check if a String is a Palindrome</h1>
+
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Enter string here" />
+    <button onclick="displayResult()">Check Palindrome</button>
+
+    <p id="result"></p>
+
+</body>
+</html>
+
+//<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Vowels in String</title>
+    <script>
+        // Function to count vowels in a string
+        function countVowels(str) {
+            const vowels = ['a', 'e', 'i', 'o', 'u']; // Define vowels
+            let count = 0;
+            // Loop through each character in the string
+            for (let i = 0; i < str.length; i++) {
+                // Check if the character is a vowel (case insensitive)
+                if (vowels.includes(str[i].toLowerCase())) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputString = document.getElementById("inputString").value; // Get input string
+            const vowelCount = countVowels(inputString);
+            document.getElementById("result").textContent = "Number of vowels: " + vowelCount;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Count the Number of Vowels in a String</h1>
+
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Enter string here" />
+    <button onclick="displayResult()">Count Vowels</button>
+
+    <p id="result"></p>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Longest Word in Sentence</title>
+    <script>
+        // Function to find the longest word in a sentence
+        function findLongestWord(sentence) {
+            const words = sentence.split(' '); // Split sentence into words
+            let longestWord = '';
+
+            // Loop through the words and find the longest one
+            for (let i = 0; i < words.length; i++) {
+                if (words[i].length > longestWord.length) {
+                    longestWord = words[i]; // Update the longest word
+                }
+            }
+            return longestWord;
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const inputSentence = document.getElementById("inputSentence").value; // Get input sentence
+            const longestWord = findLongestWord(inputSentence);
+            document.getElementById("result").textContent = "Longest word: " + longestWord;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Find the Longest Word in a Sentence</h1>
+
+    <label for="inputSentence">Enter a sentence:</label>
+    <input type="text" id="inputSentence" placeholder="Enter sentence here" />
+    <button onclick="displayResult()">Find Longest Word</button>
+
+    <p id="result"></p>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Anagram</title>
+    <script>
+        // Function to check if two strings are anagrams
+        function areAnagrams(str1, str2) {
+            // Remove spaces and convert to lowercase for comparison
+            const cleanedStr1 = str1.replace(/\s+/g, '').toLowerCase();
+            const cleanedStr2 = str2.replace(/\s+/g, '').toLowerCase();
+
+            // Check if the lengths are the same
+            if (cleanedStr1.length !== cleanedStr2.length) {
+                return false; // If lengths don't match, they can't be anagrams
+            }
+
+            // Sort the characters of both strings and compare them
+            const sortedStr1 = cleanedStr1.split('').sort().join('');
+            const sortedStr2 = cleanedStr2.split('').sort().join('');
+            
+            return sortedStr1 === sortedStr2; // Return true if sorted strings are equal
+        }
+
+        // Function to display the result
+        function displayResult() {
+            const str1 = document.getElementById("str1").value; // Get first string
+            const str2 = document.getElementById("str2").value; // Get second string
+            const result = areAnagrams(str1, str2);
+            document.getElementById("result").textContent = result ? 
+                `"${str1}" and "${str2}" are anagrams.` : 
+                `"${str1}" and "${str2}" are not anagrams.`;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Check if Two Strings are Anagrams</h1>
+
+    <label for="str1">Enter first string:</label>
+    <input type="text" id="str1" placeholder="Enter first string" />
+    <br><br>
+    <label for="str2">Enter second string:</label>
+    <input type="text" id="str2" placeholder="Enter second string" />
+    <br><br>
+    <button onclick="displayResult()">Check Anagram</button>
+
+    <p id="result"></p>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap Numbers Without Temp Variable</title>
+</head>
+<body>
+    <h2>Swap Two Numbers Without Using Temporary Variable</h2>
+
+    <p>Enter two numbers:</p>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="swapNumbers()">Swap Numbers</button>
+
+    <h3>Swapped Results:</h3>
+    <p>First Number: <span id="result1"></span></p>
+    <p>Second Number: <span id="result2"></span></p>
+
+    <script>
+        function swapNumbers() {
+            // Get the numbers from input fields
+            let num1 = parseInt(document.getElementById('num1').value);
+            let num2 = parseInt(document.getElementById('num2').value);
+            
+            // Swap using arithmetic operations (without a temporary variable)
+            num1 = num1 + num2;
+            num2 = num1 - num2;
+            num1 = num1 - num2;
+            
+            // Display the swapped values
+            document.getElementById('result1').textContent = num1;
+            document.getElementById('result2').textContent = num2;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or Odd Checker</title>
+</head>
+<body>
+    <h2>Even or Odd Checker</h2>
+
+    <p>Enter a number to check if it is even or odd:</p>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="checkEvenOdd()">Check</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkEvenOdd() {
+            // Get the input number
+            let num = parseInt(document.getElementById('number').value);
+            
+            // Check if the number is even or odd
+            if (num % 2 === 0) {
+                document.getElementById('result').textContent = num + " is Even";
+            } else {
+                document.getElementById('result').textContent = num + " is Odd";
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square of a Number</title>
+</head>
+<body>
+    <h2>Find the Square of a Number</h2>
+
+    <p>Enter a number to find its square:</p>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="findSquare()">Find Square</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function findSquare() {
+            // Get the input number
+            let num = parseInt(document.getElementById('number').value);
+            
+            // Calculate the square of the number
+            let square = num * num;
+            
+            // Display the result
+            document.getElementById('result').textContent = "The square of " + num + " is " + square;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adult or Minor Check</title>
+</head>
+<body>
+    <h2>Check if You Are an Adult or a Minor</h2>
+
+    <p>Enter your age:</p>
+    <input type="number" id="age" placeholder="Enter your age">
+    <button onclick="checkAge()">Check</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkAge() {
+            // Get the age from input field
+            let age = parseInt(document.getElementById('age').value);
+            
+            // Check if the person is an adult or a minor using ternary operator
+            let result = age >= 18 ? "You are an Adult" : "You are a Minor";
+            
+            // Display the result
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisibility Checker</title>
+</head>
+<body>
+    <h2>Check if One Number is Divisible by Another</h2>
+
+    <p>Enter two numbers:</p>
+    <input type="number" id="num1" placeholder="Enter the first number">
+    <input type="number" id="num2" placeholder="Enter the second number">
+    <button onclick="checkDivisibility()">Check</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkDivisibility() {
+            // Get the numbers from input fields
+            let num1 = parseInt(document.getElementById('num1').value);
+            let num2 = parseInt(document.getElementById('num2').value);
+            
+            // Check if num1 is divisible by num2
+            let result = (num2 !== 0 && num1 % num2 === 0) ? 
+                num1 + " is divisible by " + num2 : 
+                num1 + " is not divisible by " + num2;
+            
+            // Display the result
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Check</title>
+</head>
+<body>
+    <h2>Check if a Given Variable is an Array</h2>
+
+    <p>Enter a value (comma-separated numbers for an array):</p>
+    <input type="text" id="inputValue" placeholder="Enter a value">
+    <button onclick="checkIfArray()">Check</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkIfArray() {
+            // Get the input value
+            let inputValue = document.getElementById('inputValue').value;
+            
+            // Try to convert the input into an array (by splitting on commas)
+            let valueToCheck = inputValue.includes(",") ? inputValue.split(",").map(Number) : inputValue;
+            
+            // Check if the value is an array
+            let result = Array.isArray(valueToCheck) ? 
+                "The given value is an Array." : 
+                "The given value is not an Array.";
+            
+            // Display the result
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String to Number Conversion</title>
+</head>
+<body>
+    <h2>Convert a String to a Number</h2>
+
+    <p>Enter a string value to convert it to a number:</p>
+    <input type="text" id="stringValue" placeholder="Enter a string value">
+    <button onclick="convertToNumber()">Convert</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function convertToNumber() {
+            // Get the input value (string)
+            let stringValue = document.getElementById('stringValue').value;
+            
+            // Convert the string to a number using Number() or parseFloat()
+            let convertedNumber = Number(stringValue);
+            
+            // Check if the conversion is valid (NaN check)
+            if (isNaN(convertedNumber)) {
+                document.getElementById('result').textContent = "The input is not a valid number.";
+            } else {
+                document.getElementById('result').textContent = "Converted number: " + convertedNumber;
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integer Check</title>
+</head>
+<body>
+    <h2>Check if a Number is an Integer</h2>
+
+    <p>Enter a number to check if it's an integer:</p>
+    <input type="text" id="number" placeholder="Enter a number">
+    <button onclick="checkIfInteger()">Check</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkIfInteger() {
+            // Get the input value
+            let inputValue = document.getElementById('number').value;
+            
+            // Convert the input to a number
+            let number = parseFloat(inputValue);
+            
+            // Check if the number is an integer
+            let result = Number.isInteger(number) ? 
+                inputValue + " is an integer." : 
+                inputValue + " is not an integer.";
+            
+            // Display the result
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Type Checker</title>
+</head>
+<body>
+    <h2>Check the Data Type of a Variable</h2>
+
+    <p>Enter a value to check its data type:</p>
+    <input type="text" id="variableValue" placeholder="Enter a value">
+    <button onclick="checkDataType()">Check Data Type</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkDataType() {
+            // Get the input value
+            let inputValue = document.getElementById('variableValue').value;
+            
+            // Check the data type using typeof and handle cases where the input is a number
+            let result;
+            if (inputValue === "") {
+                result = "You must enter a value!";
+            } else {
+                // Convert input to a number if possible for type checking
+                let numberValue = Number(inputValue);
+                if (!isNaN(numberValue)) {
+                    result = "The data type is: " + typeof numberValue; // If it's a valid number
+                } else if (inputValue.toLowerCase() === "true" || inputValue.toLowerCase() === "false") {
+                    result = "The data type is: boolean"; // If it's a boolean-like value
+                } else {
+                    result = "The data type is: " + typeof inputValue; // Default is string
+                }
+            }
+            
+            // Display the result
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Null or Undefined Checker</title>
+</head>
+<body>
+    <h2>Check if a Value is Null or Undefined</h2>
+
+    <p>Enter a value to check if it's null or undefined:</p>
+    <input type="text" id="inputValue" placeholder="Enter a value">
+    <button onclick="checkNullOrUndefined()">Check</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkNullOrUndefined() {
+            // Get the input value
+            let inputValue = document.getElementById('inputValue').value;
+            
+            // Convert empty string to null for checking
+            if (inputValue === "") {
+                inputValue = null;
+            }
+
+            // Check if the value is either null or undefined
+            let result = (inputValue === null || inputValue === undefined) ? 
+                "The value is either null or undefined." : 
+                "The value is neither null nor undefined.";
+
+            // Display the result
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Array Numbers</title>
+</head>
+<body>
+    <h2>Calculate the Sum of All Numbers in an Array</h2>
+
+    <p>Enter numbers separated by commas (e.g., 1, 2, 3, 4):</p>
+    <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas">
+    <button onclick="calculateSum()">Calculate Sum</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function calculateSum() {
+            // Get the input value and split it into an array
+            let inputValue = document.getElementById('arrayInput').value;
+            
+            // Convert the input string into an array of numbers
+            let numberArray = inputValue.split(',').map(num => parseFloat(num.trim()));
+
+            // Check if all the values are valid numbers
+            if (numberArray.some(isNaN)) {
+                document.getElementById('result').textContent = "Please enter valid numbers only.";
+            } else {
+                // Calculate the sum of the numbers in the array
+                let sum = numberArray.reduce((acc, current) => acc + current, 0);
+                
+                // Display the result
+                document.getElementById('result').textContent = "The sum of the numbers is: " + sum;
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatten Nested Array</title>
+</head>
+<body>
+    <h2>Flatten a Nested Array</h2>
+
+    <p>Enter a nested array (e.g., [1, [2, 3], [4, [5]]]):</p>
+    <input type="text" id="arrayInput" placeholder="Enter a nested array">
+    <button onclick="flattenArray()">Flatten Array</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function flattenArray() {
+            // Get the input value
+            let inputValue = document.getElementById('arrayInput').value;
+            
+            // Parse the input into an array (evaluate the string as JSON)
+            let nestedArray;
+            try {
+                nestedArray = JSON.parse(inputValue);
+            } catch (error) {
+                document.getElementById('result').textContent = "Invalid array format. Please enter a valid nested array.";
+                return;
+            }
+
+            // Flatten the nested array using recursion
+            const flatten = (arr) => {
+                let flattened = [];
+                arr.forEach(item => {
+                    if (Array.isArray(item)) {
+                        flattened = flattened.concat(flatten(item)); // Recursively flatten
+                    } else {
+                        flattened.push(item); // Push non-array items
+                    }
+                });
+                return flattened;
+            };
+
+            // Flatten the array and display the result
+            let flattenedArray = flatten(nestedArray);
+            document.getElementById('result').textContent = "Flattened array: " + JSON.stringify(flattenedArray);
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element Frequency Counter</title>
+</head>
+<body>
+    <h2>Count the Frequency of Each Element in an Array</h2>
+
+    <p>Enter an array (e.g., [1, 2, 2, 3, 3, 3]):</p>
+    <input type="text" id="arrayInput" placeholder="Enter an array">
+    <button onclick="countFrequency()">Count Frequency</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function countFrequency() {
+            // Get the input value
+            let inputValue = document.getElementById('arrayInput').value;
+            
+            // Parse the input into an array (evaluate the string as JSON)
+            let array;
+            try {
+                array = JSON.parse(inputValue);
+            } catch (error) {
+                document.getElementById('result').textContent = "Invalid array format. Please enter a valid array.";
+                return;
+            }
+
+            // Create an object to store the frequency of each element
+            let frequency = {};
+
+            // Loop through the array and count the frequency of each element
+            array.forEach(item => {
+                frequency[item] = (frequency[item] || 0) + 1;
+            });
+
+            // Prepare the result to display
+            let resultText = "Frequency of each element:<br>";
+            for (let key in frequency) {
+                resultText += `${key}: ${frequency[key]}<br>`;
+            }
+
+            // Display the result
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check if String Contains Only Digits</title>
+</head>
+<body>
+    <h2>Check if a String Contains Only Numeric Digits</h2>
+
+    <p>Enter a string to check if it contains only digits:</p>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="checkOnlyDigits()">Check</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function checkOnlyDigits() {
+            // Get the input value
+            let inputString = document.getElementById('inputString').value;
+            
+            // Use a regular expression to check if the string contains only digits
+            let isOnlyDigits = /^\d+$/.test(inputString);
+
+            // Display the result
+            let resultText = isOnlyDigits ? "The string contains only numeric digits." : "The string does not contain only numeric digits.";
+            document.getElementById('result').textContent = resultText;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalize First Letter of Each Word</title>
+</head>
+<body>
+    <h2>Capitalize First Letter of Each Word in a Sentence</h2>
+
+    <p>Enter a sentence to capitalize the first letter of each word:</p>
+    <input type="text" id="sentenceInput" placeholder="Enter a sentence">
+    <button onclick="capitalizeWords()">Capitalize</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function capitalizeWords() {
+            // Get the input value (the sentence)
+            let sentence = document.getElementById('sentenceInput').value;
+            
+            // Capitalize the first letter of each word using split, map, and join
+            let capitalizedSentence = sentence
+                .split(' ') // Split the sentence into words
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter of each word
+                .join(' '); // Join the words back together into a sentence
+
+            // Display the result
+            document.getElementById('result').textContent = "Capitalized Sentence: " + capitalizedSentence;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Intersection</title>
+</head>
+<body>
+    <h2>Find the Intersection of Two Arrays</h2>
+
+    <p>Enter the first array (e.g., [1, 2, 3, 4]):</p>
+    <input type="text" id="array1Input" placeholder="Enter the first array">
+    <p>Enter the second array (e.g., [3, 4, 5, 6]):</p>
+    <input type="text" id="array2Input" placeholder="Enter the second array">
+    <button onclick="findIntersection()">Find Intersection</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function findIntersection() {
+            // Get the input values
+            let array1 = JSON.parse(document.getElementById('array1Input').value);
+            let array2 = JSON.parse(document.getElementById('array2Input').value);
+
+            // Find the intersection of both arrays using filter and includes
+            let intersection = array1.filter(value => array2.includes(value));
+
+            // Display the result
+            document.getElementById('result').textContent = "Intersection: " + JSON.stringify(intersection);
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array of Strings by Length</title>
+</head>
+<body>
+    <h2>Sort an Array of Strings Based on Their Length</h2>
+
+    <p>Enter a list of strings separated by commas (e.g., "apple, banana, cherry, fig"):</p>
+    <input type="text" id="stringArrayInput" placeholder="Enter strings separated by commas">
+    <button onclick="sortStringsByLength()">Sort by Length</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function sortStringsByLength() {
+            // Get the input value (the string of words separated by commas)
+            let inputValue = document.getElementById('stringArrayInput').value;
+            
+            // Convert the input into an array of strings
+            let stringArray = inputValue.split(',').map(str => str.trim());
+
+            // Sort the array based on the length of each string
+            let sortedArray = stringArray.sort((a, b) => a.length - b.length);
+
+            // Display the result
+            document.getElementById('result').textContent = "Sorted Array by Length: " + JSON.stringify(sortedArray);
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+</head>
+<body>
+    <h2>Find the Factorial of a Positive Integer</h2>
+
+    <p>Enter a positive integer:</p>
+    <input type="number" id="numberInput" placeholder="Enter a number" min="0">
+    <button onclick="calculateFactorial()">Calculate Factorial</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function calculateFactorial() {
+            // Get the input value (the number)
+            let number = parseInt(document.getElementById('numberInput').value);
+
+            // Check if the number is a positive integer
+            if (isNaN(number) || number < 0) {
+                document.getElementById('result').textContent = "Please enter a valid positive integer.";
+                return;
+            }
+
+            // Function to calculate factorial
+            let factorial = 1;
+            for (let i = 1; i <= number; i++) {
+                factorial *= i;
+            }
+
+            // Display the result
+            document.getElementById('result').textContent = "Factorial of " + number + " is: " + factorial;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sorted Arrays</title>
+</head>
+<body>
+    <h2>Merge Two Sorted Arrays</h2>
+
+    <p>Enter the first sorted array (e.g., [1, 3, 5]):</p>
+    <input type="text" id="array1Input" placeholder="Enter first sorted array">
+    
+    <p>Enter the second sorted array (e.g., [2, 4, 6]):</p>
+    <input type="text" id="array2Input" placeholder="Enter second sorted array">
+    
+    <button onclick="mergeSortedArrays()">Merge Arrays</button>
+
+    <h3>Result:</h3>
+    <p id="result"></p>
+
+    <script>
+        function mergeSortedArrays() {
+            // Get the input values and parse them as JSON arrays
+            let array1 = JSON.parse(document.getElementById('array1Input').value);
+            let array2 = JSON.parse(document.getElementById('array2Input').value);
+
+            // Check if both arrays are sorted
+            if (!isSorted(array1) || !isSorted(array2)) {
+                document.getElementById('result').textContent = "Both arrays must be sorted.";
+                return;
+            }
+
+            // Merging the two sorted arrays
+            let mergedArray = [];
+            let i = 0, j = 0;
+
+            // Merge the two arrays
+            while (i < array1.length && j < array2.length) {
+                if (array1[i] < array2[j]) {
+                    mergedArray.push(array1[i]);
+                    i++;
+                } else {
+                    mergedArray.push(array2[j]);
+                    j++;
+                }
+            }
+
+            // If there are remaining elements in array1 or array2, add them
+            while (i < array1.length) {
+                mergedArray.push(array1[i]);
+                i++;
+            }
+            while (j < array2.length) {
+                mergedArray.push(array2[j]);
+                j++;
+            }
+
+            // Display the merged result
+            document.getElementById('result').textContent = "Merged Sorted Array: " + JSON.stringify(mergedArray);
+        }
+
+        // Helper function to check if an array is sorted
+        function isSorted(arr) {
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < arr[i - 1]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove False Values from Array</title>
+</head>
+<body>
+    <h1>Array Filter Example</h1>
+    <script>
+        // Function to remove all false values from an array
+        function removeFalseValues(arr) {
+            return arr.filter(Boolean); // filter out all falsy values (false, 0, "", null, undefined, NaN)
+        }
+
+        // Example usage:
+        let myArray = [0, 1, false, 2, "", 3, null, 4, undefined, 5];
+        console.log("Original Array:", myArray);
+        
+        let cleanedArray = removeFalseValues(myArray);
+        console.log("Array after removing false values:", cleanedArray);
+    </script>
+</body>
+</html>
+
+
